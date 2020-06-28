@@ -24,29 +24,30 @@ int main(){
 		cout << "NO SOLUTION" << "\n";
 		return 0;
 	}
-	cnt = -1;
+	cnt = -65;
+	int len = 0;
+	char ch ;
 	for(int i=25;i>=0;i--){
-		char ch = char('A'+i);
-		//cout << count[i] << " ";
+		ch = char('A'+i);
+		
 		if(!(count[i]%2)){
 			string temp(count[i]/2,ch);
 			First_half += temp;
 			sec_half += temp;	
 			
-			//cout << ch <<" " << temp  << "\n";
 		
 		}
-		else
+		else{
 			cnt = i;
+			len = count[i];
+		}
 	}
-	//cout << First_half << " " << sec_half << "\n";
-	string ch = "";
-	if(cnt>=0){
-		ch = char('A'+cnt);
-		//cout << ch << "\n";
-	}
+	
+	ch = char('A'+cnt);
+	string temp (len,ch);
+	
 	reverse(First_half.begin(),First_half.end());
-	string ans = First_half + ch + sec_half;
+	string ans = First_half + temp + sec_half;
 	cout << ans << "\n";
 	return 0;
 }
