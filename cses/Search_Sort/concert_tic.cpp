@@ -3,7 +3,7 @@ using namespace std;
 
 #define MOD 1000000007
 #define ll long long int
-
+/*
 int bin_srch(vector<int>a,int st,int end,int key){
 	int mid = 0,flag=0;
 	if(a.empty())
@@ -82,4 +82,36 @@ int main(){
 	
 	return 0;
 }
+*/
 
+
+int main(){
+	ios_base::sync_with_stdio(0);
+	cin.tie(0);	
+	
+	int n,m;
+	cin >> n >> m;
+	
+	multiset<int> ticket;
+	multiset<int> :: iterator it;
+	int temp;
+
+	while(n--){
+		cin >> temp;
+		ticket.insert(temp);
+	}
+
+	while(m--){
+		cin >> temp;
+		it = ticket.upper_bound(temp);
+		
+		if(it == ticket.begin())
+			cout << -1 << "\n";
+		else{
+			it--;
+			cout << *(it) << "\n";
+			ticket.erase(it);
+		}
+	}
+	return 0;
+}

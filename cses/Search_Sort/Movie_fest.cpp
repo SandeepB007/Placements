@@ -5,7 +5,7 @@ using namespace std;
 #define ll long long int
 
 bool cmp(pair<int,int>a,pair<int,int>b){
-	return (a.second <= b.second);	
+	return (a.second < b.second);	
 }
 
 int main(){
@@ -21,10 +21,11 @@ int main(){
 		cin >> time[i].first >> time[i].second;
 	}
 
-	for(int i=0;i<n;i++){
-		cout << time[i].first <<" " << time[i].second << ",";
-	}
+	//for(int i=0;i<n;i++){
+	//	cout << time[i].first <<" " << time[i].second << ",";
+	//}
 	sort(time.begin(),time.end(),cmp);
+	//cout << 1 << "\n";
 	int cnt = 1;
 	int r0 = time[0].second;
 	for(int i=1;i<n;i++){

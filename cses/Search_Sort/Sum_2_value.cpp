@@ -24,8 +24,8 @@ int main(){
 		num[i].second = i+1;
 	}
 	
-	cout << n << " " << x << "\n";
-	sort(num.begin(),num.end(),cmp);
+	//cout << n << " " << x << "\n";
+	sort(num.begin(),num.end());
 	int st=0,end=n-1;
 	while(st<end){
 		if(num[st].first+num[end].first == x){
@@ -42,7 +42,9 @@ int main(){
 	cout << "IMPOSSIBLE\n";
 	return 0;
 }
+
 */
+// hashing ....
 
 int main(){
 	ios_base::sync_with_stdio(0);
@@ -64,14 +66,16 @@ int main(){
 	for(int i=0;i<n;i++){
 		int temp = x - No[i].first;
 
-		if(hash.find(temp)==hash.end())
-			hash[No[i].first]=No[i].second;
-		else{
+		if(hash.find(temp)!=hash.end()){
 			cout << hash[temp] << " " << No[i].second << endl;
 			return 0; 
+		}
+		else{
+			hash[No[i].first]=No[i].second;
 		}
 
 	}
 	cout << "IMPOSSIBLE\n";
 	return 0;	
 }
+
